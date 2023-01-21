@@ -1,27 +1,57 @@
-let addToDoButton = document.getElementById('addToDo');
-let toDoContainer = document.getElementById('toDoContainer');
-let inputField = document.getElementById('inputField');
-let checkBtn=document.querySelector('.check');
-let del=document.querySelector('.butt');
+let button=document.querySelector("button");
+let liste=document.querySelector("ul");
+let input=document.querySelector("input");
 
+button.addEventListener("click",addToDo);
+let i=0;
+function addToDo(){
+    if (input.value==""){
+        alert("input is empty, write something");
+        return;}
+    else{
+    let li=document.createElement("li");
+    li.id="to-do-"+i;
+    i++;
+    let span=document.createElement("span");
+    let spanimg=document.createElement("span");
+    span.innerHTML=input.value;
+    let checkbox=document.createElement("input");
+    checkbox.type="checkbox";
+    let button=document.createElement("button");
+    button.innerText="delete this task";
+    button.addEventListener("click",deleteToDo);
+    checkbox.addEventListener("change",check);
+    li.appendChild(checkbox);
+    li.appendChild(span);
+    li.appendChild(button);
+    liste.appendChild(li);
+    }
+}
 
-addToDoButton.addEventListener('click', function(){
-    var paragraph = document.createElement('p');
-    paragraph.classList.add('paragraph-styling');
-    if(inputField.value==""){
-        alert('contenu vide')
-    }else{
-        paragraph.innerText = inputField.value;
-        toDoContainer.innerHTML=`<li> <div class="item"><input class="check" type="checkbox"/> <span id="text"> ${paragraph.innerText} </span> <button class="butt" > Delete</button> </div></li>`;
-        inputField.value = "";}
-    })
+function isInputempty(){
+    if (input.value==""){
+        return true;
+    }
+    return false;
+}
 
-checkBtn.addEventListener('click', function(){
-    var paragraph=toDoContainer.innerHTML;
-    paragraph.style.textDecoration = "line-through";
-})
-del.addEventListener('click', function(){
-    var paragraph=toDoContainer.innerHTML;
-    toDoContainer.removeChild(paragraph);
-})
+input.addEventListener("keypress",function(e){
+    if (e.key=="Enter"){
+        addToDo();
+    }
+});
+
+function deleteToDo(e){
+    let id=e.target.parentElement.id;
+    let elementToDelete=document.getElementById(id);
+    elementToDelete.remove();
+}
+function check(e){
+    if (e.target.checked==true){
+        e.target.parentElement.querySelector("span").style.textDecoration="line-through";
+    }
+    else{
+        e.target.parentElement.querySelector("span").style.textDecoration="";
+    }
+}
 
