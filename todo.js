@@ -30,13 +30,6 @@ function addToDo(){
     }
 }
 
-function isInputempty(){
-    if (input.value==""){
-        return true;
-    }
-    return false;
-}
-
 input.addEventListener("keypress",function(e){
     if (e.key=="Enter"){
         addToDo();
