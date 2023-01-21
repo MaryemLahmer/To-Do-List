@@ -25,6 +25,7 @@ function addToDo(){
     li.appendChild(span);
     li.appendChild(button);
     liste.appendChild(li);
+    input.value="";
     }
 }
 
