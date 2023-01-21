@@ -16,6 +16,7 @@ function addToDo(){
     let spanimg=document.createElement("span");
     span.innerHTML=input.value;
     let checkbox=document.createElement("input");
+    checkbox.classList.add("checkbox");
     checkbox.type="checkbox";
     let button=document.createElement("button");
     button.innerText="delete this task";
