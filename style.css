@@ -1,17 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+:root{
+    --color-darkblue:#796ec8;
+    --color-darkblue-alpha:rgba(13, 138, 187, 0.8);
+    --color-green:#21eb6e;
+}
 html, body {
-    margin: 0 ;
+    margin-top: 15px;
     padding: 0;
-    font-family: verdana;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
     background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
 }
-.title{
-    display: flex;
+h1{
     font-weight: bold;
     font-size: 35px;
     justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(13, 12, 12);
-
+    color: var(--color-darkblue-alpha);
+    font-family: 'Poppins',sans-serif;
 }
 .container {
     width: 100%;
@@ -21,71 +30,83 @@ html, body {
     align-items: center;
 }
 
-#inputField {
-    width: 50%;
-    height: 46px;
+.todo{
+    width: 45%;
+    height: 30px;
     border-radius: 5px;
     border: 1px solid black;
     outline: none;
-    font-size: 25px;
+    font-size: 20px;
     vertical-align: middle;
     box-shadow: 0 3px gray;
+    margin-left: 55px;
+    padding-left: 10px;
 }
 
-#addToDo {
-    height: 50px;
-    width: 80px;
+.add {
+    height: 35px;
+    width: 10%;
     border: 1px solid black;
     vertical-align: middle;
-    font-size: 20px;
+    font-size: 15px;
     box-shadow: 0 3px gray;
     padding-left: 3px ;
-    background-color:rgb(121, 241, 246);
+    margin-left: 5px;
     cursor:pointer;
     border-radius: 5px;
+
 }
 
-.tasks{
+ul{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 25px;
+    font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     letter-spacing: 1px;
 
 }
-.item{
+li{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    margin-top: 15px;
+    font-style: italic;
     
 }
-input.check {
-    height:35px;
-    width: 35px;
-    background-color:beige ;
-    box-shadow: 0 2px gray;
+
+span{
+    margin-left: 20px; 
+}
+.checkbox {
     cursor:pointer;
-    margin-right: 30px;
+    border:2px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-right: 0.625rem;
+    min-height: 1.8rem;
+    min-width: 1.8rem;
+    accent-color:var(--color-green);
 
 }
-.butt{
-    height:35px;
-    width: 80px;
+button{
+    height:30px;
+    width: 55px;
     font-size: 20px;
-    background-color:beige ;
+    background-color:var(--color-green);
     box-shadow: 0 1px gray;
-    cursor:pointer;
-    background-color:rgb(121, 241, 246);
     border-radius: 5px;
     margin-left: 40px;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 15px;
     
 }
-#addToDo:active,.butt:active{
-    box-shadow: 0 1px gray;
+.add:active, button:active{
+    box-shadow: 0 1px rgb(0, 0, 0);
     transform: translateY(2px);
+    transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
 }
 
 .paragraph-styling {
@@ -94,6 +115,3 @@ input.check {
     font-size: 20px;
 }
 
-.to-dos {
-    margin-top: 25px;
-}
